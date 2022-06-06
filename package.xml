@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>multi_turtlebot3_test</name>
+  <version>1.0.0</version>
+  <description>Programs for testing the turtlebot3 in AK120 labs.</description>
+
+  <maintainer email="asaswale@wpi.edu">Ashay Aswale</maintainer>
+
+  <license>BSD</license>
+
+  <author>Ashay Aswale</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>rospy</run_depend>
+</package>
