@@ -1,17 +1,51 @@
 <launch>
+    <arg name="multi_robot_name" default="luigi"/>
 
-  <arg name="robot_1" default="luigi"/>
-
-  <group ns="$(arg robot_1)">
-    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_model.launch">
-        <arg name="multi_robot_name" value="$(arg robot_1)"/>
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="luigi"/>
     </include>
 
-    <include file="$(find turtlebot3_slam)/launch/turtlebot3_gmapping.launch">
-        <arg name="multi_robot_name" value="$(arg robot_1)"/>
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="dorrie"/>
     </include>
-
-    <node pkg="multi_turtlebot3_test" type="walk_front_back.py" name="walk_front_back" output="log"/>
-  </group>
-
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="rosalina"/>
+    </include>
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="peach"/>
+    </include>
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="yoshi"/>
+    </include>
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="toad"/>
+    </include>
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="wario"/>
+    </include>
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="nabbit"/>
+    </include>
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="diddy"/>
+    </include>
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="pauliene"/>
+    </include>
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="bowsette"/>
+    </include>
+    
+    <include file="$(find multi_turtlebot3_test)/launch/single_turtlebot3_test.launch">
+        <arg name="multi_robot_name" value="birdo"/>
+    </include>
 </launch>

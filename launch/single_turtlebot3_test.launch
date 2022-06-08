@@ -1,0 +1,17 @@
+<launch>
+
+  <arg name="multi_robot_name" default="luigi"/>
+
+  <group ns="$(arg multi_robot_name)">
+    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_model.launch">
+        <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
+    </include>
+
+    <include file="$(find turtlebot3_slam)/launch/turtlebot3_gmapping.launch">
+        <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
+    </include>
+
+    <node pkg="multi_turtlebot3_test" type="walk_front_back.py" name="walk_front_back" output="log"/>
+  </group>
+
+</launch>
