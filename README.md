@@ -2,6 +2,8 @@
 
 This repository is a simple test in an attempt to recreate a previously observed issue regarding robots loosing connections. It will start all the robots in their namespaces, and when triggered, will execute a recriprocating front and backward motion. 
 
+> This readme does not include the process to set `ROS_MASTER_URI` and `ROS_HOSTNAME`. Please make sure you have them set to the host machine that you will be using. You can use the `.bashrc` file in this repo to help you with that.
+
 ## Changes needed on the turtlebots
 ***Make sure you are ssh'd in the robots. Following commands are to be executed on the robots***
 
@@ -58,6 +60,8 @@ cd ~/catkin_ws
 catkin_make
 ```
 
+> If you get the error saying `catkin_make command not found`, please make sure you have the ros setup.bash sourced
+
 ### Replace the gmapping launch file
 The file needed for the testing is in the `launch` directory of this repository. Replace the existing file with this one. (As this file has an empty default `multi_robot_name`, you may leave it in the replaced, and may not need to revert the changes.)
 
@@ -73,6 +77,7 @@ These are all the changes you will need at the host machine
 1. Start and connect to the robots as usual. 
 2. Open the file to change the robot names:
 ```bash 
+source ~/.bashrc
 rosed multi_turtlebot3_test multi_turtlebot3_test.launch 
 ```
 3. The git version of the code may have the more/lesser number of robots than you may be testing, and their names may be different. Hence make sure that your host version launch file matches your testing robots. In the file, you will find multiple alterations of the following three lines. This launch config will launch the setup for that one robot. Hence, change the robot name in the field `value` below, and only keep the robot names that you need. Delete/comment out the rest.  
@@ -102,3 +107,4 @@ To stop the test, publish a `false` message on the same topic:
 ```bash
 rostopic pub /start_motion std_msgs/Bool "data: false"
 ```
+
