@@ -17,7 +17,7 @@ REMAKE_Workspace() {
 }
 
 source /opt/ros/$(ls /opt/ros)/setup.bash
-source ~/ak_labs_ws/devel/setup.bash
+source ~/catkin_ws/devel/setup.bash
 
 export TURTLEBOT3_MODEL=burger
 
