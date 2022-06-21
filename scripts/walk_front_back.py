@@ -23,7 +23,8 @@ rospy.Subscriber("/start_motion", Bool, callback)
 
 
 velocity_x_set = [0.05,0,-0.05,0]
-walk_timer = 2 #seconds
+action_x_set = ["Forward", "Nowhere", "Backwards", "Nowhere"]
+walk_timer = 3 #seconds
 
 
 
@@ -41,11 +42,13 @@ i = 0
 # publisher.publish(twist)
 # rospy.sleep(2)
 
+ns = rospy.get_namespace()
 while not rospy.is_shutdown():
     if not (start_motion):
         twist.linear.x = 0
     else:
         twist.linear.x = velocity_x_set[i]
+        print(ns, " going ", action_x_set[i])
         i = i+1 if i<(len(velocity_x_set)-1) else 0
     
     publisher.publish(twist)
